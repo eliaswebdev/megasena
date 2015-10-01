@@ -33,7 +33,6 @@ class MegaSena
 	end
 
 	def total(qtd_jogos)
-
 		puts '========================================='
 		puts "TOTAL A PAGAR R$ #{qtd_jogos*3.5}"
 		puts '========================================='
