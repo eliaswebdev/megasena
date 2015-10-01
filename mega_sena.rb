@@ -7,7 +7,7 @@ class MegaSena
 			mega = mega.shuffle
 			p mega[0..5].sort.map {|n| n < 10 ? "0#{n}" : "#{n}" }.join(' - ')
 		end
-		puts '========================================='
+		total(qtd_jogos)
 	end
 	
 	def jogo_esperto(qtd_jogos)
@@ -17,7 +17,7 @@ class MegaSena
 			mega = mega.shuffle
 			p mega[0..5].sort.map {|n| n < 10 ? "0#{n}" : "#{n}" }.join(' - ')
 		end
-		puts '========================================='
+		total(qtd_jogos)
 	end
 	
 	def jogo_mais_esperto(qtd_jogos)
@@ -29,6 +29,13 @@ class MegaSena
 			mega = range_seleto.shuffle[0..3] + diff_range.shuffle[0..1]
 			p mega[0..5].sort.map {|n| n < 10 ? "0#{n}" : "#{n}" }.join(' - ')
 		end
+		total(qtd_jogos)
+	end
+
+	def total(qtd_jogos)
+
+		puts '========================================='
+		puts "TOTAL A PAGAR R$ #{qtd_jogos*3.5}"
 		puts '========================================='
 	end
 
@@ -36,5 +43,5 @@ end
 
 meu_jogo = MegaSena.new
 # meu_jogo.jogo_normal(4)
-# meu_jogo.jogo_esperto(4)
-meu_jogo.jogo_mais_esperto(2)
+meu_jogo.jogo_esperto(2)
+# meu_jogo.jogo_mais_esperto(2)
