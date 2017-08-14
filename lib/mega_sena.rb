@@ -1,9 +1,13 @@
 class MegaSena
+  attr_accessor :numeros
+
+  def initialize(numeros=(1..60).to_a)
+    @numeros = numeros
+  end
   
   def jogo_normal(qtd_jogos)
-    mega = (1..60).to_a
     
-    mistura_numeros(mega, qtd_jogos)
+    mistura_numeros(self.numeros, qtd_jogos)
 
     total(qtd_jogos)
   end
@@ -18,7 +22,7 @@ class MegaSena
 
   
   def jogo_mais_esperto(qtd_jogos)
-    range_normal = (1..60).to_a.shuffle
+    range_normal = self.numeros.shuffle
     range_seleto = [04, 05, 07, 12, 13, 16, 17, 23, 24, 29, 30, 32, 33, 37, 38, 41, 42, 43, 47, 49, 50, 51, 53, 54, 58, 59].shuffle
     diff_range = range_normal - range_seleto
     
@@ -47,5 +51,5 @@ end
 
 meu_jogo = MegaSena.new
 meu_jogo.jogo_normal(4)
-# meu_jogo.jogo_esperto(2)
-# meu_jogo.jogo_mais_esperto(2)
+meu_jogo.jogo_esperto(2)
+meu_jogo.jogo_mais_esperto(2)
